@@ -1,1 +1,2 @@
-answer5
+df['longest_axis'] = df[['scan.width', 'scan.length', 'x']].max(axis=1)
+df.head()
