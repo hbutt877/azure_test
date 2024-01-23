@@ -1,2 +1,2 @@
-df['x'] = 2 * 2 * df['scan.area'] / (np.pi * df['scan.width'])
+df['x'] = (4 * df['scan.area']) / (np.pi * df['scan.width'])
 df.head()
