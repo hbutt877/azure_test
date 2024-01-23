@@ -1,1 +1,14 @@
-answer
+def get_spec_name(img):
+    species_code = int(img.split('-')[0])
+    species_dict = {
+        1: "Anas platyrhynchos domesticus",
+        2: "Anser cygnoides domesticus",
+        3: "Coturnix japonica domesticus",
+        4: "Gallus gallus domesticus",
+        5: "Alectoris chukar domesticus",
+        7: "Phasianus colchicus domesticus"
+    }
+    return species_dict.get(species_code, "Unknown")
+
+df['Species'] = df['Image'].apply(get_spec_name)
+df.head()
