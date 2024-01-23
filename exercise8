@@ -1,1 +1,20 @@
-answer8
+# considering only the data points with a value for both the yolk and the albumen
+filtered_df = df.dropna(subset=['Yolk', 'Albumen'])
+
+with pm.Model() as model:
+    # given parameters in exercise
+    alpha = pm.Normal('alpha', mu=0, sigma=3)
+    beta = pm.Normal('beta', mu=0, sigma=3)
+    gamma = pm.Exponential('gamma', lam=1)
+
+    # alpha plus beta dot volume
+    mu = alpha + beta * filtered_df['Volume']
+
+    # normal distribution
+    Y_obs = pm.Normal('Y_obs', mu=mu, sigma=gamma, observed=filtered_df['Yolk'] + filtered_df['Albumen'])
+    
+    # sampling
+    trace = pm.sample(1000, return_inferencedata=True)
+
+az.plot_posterior(trace)
+plt.show()
