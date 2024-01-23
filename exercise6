@@ -1,1 +1,10 @@
-answer6
+plt.figure()
+
+species_list = df['Species'].unique()
+
+for species in species_list:
+    species_data = df[df['Species'] == species]['scan.area']
+    plt.hist(species_data, label=species)
+
+plt.legend()
+plt.show()
