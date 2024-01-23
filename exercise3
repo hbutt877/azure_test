@@ -6,3 +6,6 @@ def ellipsoid_volume(a: float, b: float, c: float) -> float:
     """
     import math
     return (4/3) * math.pi * a * b * c
+
+import doctest
+doctest.testmod()
