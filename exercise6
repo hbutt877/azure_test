@@ -6,5 +6,7 @@ for species in species_list:
     species_data = df[df['Species'] == species]['scan.area']
     plt.hist(species_data, label=species)
 
+plt.xlabel('Area')
+plt.ylabel('Count')
 plt.legend()
 plt.show()
