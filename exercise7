@@ -1,1 +1,12 @@
-answer7
+df['Volume'] = df.apply(lambda row: ellipsoid_volume(row['scan.length']/2, row['scan.width']/2, row['x']/2), axis=1)
+
+plt.figure()
+
+for species in species_list:
+    species_data = df[df['Species'] == species]
+    plt.scatter(species_data['Volume'], species_data['Yolk'] + species_data['Albumen'], label=species)
+
+plt.xlabel('Volume')
+plt.ylabel('Sum of Yolk and Albumen')
+plt.legend()
+plt.show()
