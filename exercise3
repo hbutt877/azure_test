@@ -1,1 +1,8 @@
-answer
+def ellipsoid_volume(a: float, b: float, c: float) -> float:
+    """
+    Example:
+    >>> ellipsoid_volume(3, 4, 5)
+    251.32741228718345
+    """
+    import math
+    return (4/3) * math.pi * a * b * c
